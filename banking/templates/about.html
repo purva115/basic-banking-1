@@ -1,0 +1,79 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AboutUs</title>
+    <style>
+        body {
+            padding: 0px;
+            margin: 0px;
+            background: url("{% static 'image/about.jpg' %}");
+            width: 100%;
+            color: white;
+            text-decoration: none;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+
+        .container {
+            /*border: 1px solid white;*/
+            width: 800px;
+
+            margin-left: 30px;
+            margin-top: 20px;
+
+        }
+
+        .one {
+            color: brown;
+            font-size: 30px;
+            text-align: center;
+
+        }
+
+        .two {
+            color: black;
+            font-size: 20px;
+
+        }
+
+        span {
+            color: brown;
+            font-size: 20px;
+
+        }
+
+        .three {
+            color: black;
+            font-size: 40px;
+
+        }
+    </style>
+</head>
+
+<body>
+     
+    <div class="container">
+        <h1 class="one cent">About Us</h1>
+        <h1 class="two">This simple dynamic website enables users to create account and transfer cash to dummy users.
+        </h1>
+
+
+        <h1 class="two"><span>Flow:</span><br>Home Page<span> > </span> View all Customers<span> > </span> Be a
+            Customer<span> > </span> Transfer Money<span> > </span>
+            Select Customer to transfer to<span> > </span> View all Customers </h1>
+
+
+        <h1 class="two">
+            Designed and Developed by <span>Purva Jagtap</span> as a Web Development and Design Intern at <br><span>The
+                Sparks Foundation.</span>
+        </h1>
+    </div>
+</body>
+
+</html>
