@@ -1,1 +1,2 @@
-web: gunicorn bank_management.wsgi
+web: gunicorn bank_management.wsgi --log-file -
+web : gunicorn basic-banking-1:app
