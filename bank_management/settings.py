@@ -26,7 +26,7 @@ SECRET_KEY = 'w3_6i=$^a(33k9ret5$d^f4$w62f5*6e_mn*qc943ktr22hpl*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'https://basic-banking-1.herokuapp.com/']
+ALLOWED_HOSTS = ['127.0.0.1', 'https://basic-banking-1.herokuapp.com']
 
 
 # Application definition
