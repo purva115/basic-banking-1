@@ -1,527 +1,77 @@
-{%load static %}
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Banking</title>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,700;1,400&display=swap"
-        rel="stylesheet">
-    <style>
-        /* Reset CSS (DO NOT DELETE) */
-        html,
-        body,
-        ul,
-        ol,
-        li,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        p,
-        div {
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: "Lucida Grande";
-            box-sizing: border-box;
-        }
-
-        .headerright {
-            position: absolute;
-            display: inline-block;
-            right: 20px;
-            top: 0px;
-            font-weight: 500;
-        }
-
-        a {
-            text-decoration: none;
-            display: inline-block;
-            /* border: 2px solid black;*/
-            /*margin: 10px 0px;*/
-            padding: 10px;
-            color: white;
-            font-size: 20px;
-
-        }
-
-        .headerright a:hover {
-            color: gray;
-            text-decoration: underline;
-        }
-
-
-        .writelogo {
-            display: inline-block;
-            position: absolute;
-            /* border: 2px solid black;*/
-            margin: 10px 3px;
-            padding: 10px 10px 10px 12px;
-            font-size: 20px;
-            left: 60px;
-            top: 0px;
-            color: white;
-            font-family: 'Merriweather', serif;
-        }
-
-
-        .logo {
-            width: 50px;
-            height: 50px;
-            padding: 4px 10px 4px 20px;
-            /*border: 2px solid black;*/
-            left: 230px;
-        }
-
-        header {
-            background-color: antiquewhite;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
-
-        .container1 {
-            width: auto;
-            height: 60px;
-            margin: 0 auto;
-            /*position: fi;*/
-            /*border: 2px solid black;*/
-            background-color: #223134E6;
-
-
-        }
-
-        .content {
-            color: white;
-
-
-        }
-
-
-
-
-        /* @media(min-aspect-ratio:16/9) {
-            #video {
-                width: 100%;
-                height: 70%;
-            }
-        }
-
-        @media(max-aspect-ratio:16/9) {
-            #video {
-                width: 100%;
-                height: 70%;
-            }
-        }
-
-        @media(max-aspect-ratio:767px) {
-            #video {
-                width: 100%;
-                height: 70%;
-                background-size: cover;
-            }
-        }
-
-        #p1,
-        h1 {
-            color: black;
-            text-align: center;
-            border: 2px solid red;
-            top: 90px;
-
-        }*/
-        #home {
-            background: none;
-            height: 10%;
-        }
-
-        #bgvideo {
-            position: flex;
-            top: 30%;
-            left: 50%;
-            object-fit: cover;
-            /*transform: translateX(-50%) translateY(-50%);*/
-            min-width: 100%;
-            min-height: 100%;
-            /*width: 100%;*/
-            /* height: 100%;*/
-            z-index: -1;
-            /*opacity: 70%;*/
-            width: 100px;
-            height: 400px;
-        }
-
-        #overlay {
-            background-color: rgba(0, 0, 0, 0.1);
-            width: 100%;
-            /*height: 80%;*/
-            /*min-height: 100vh;*/
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            /* top: 0%;
-            left: 20%;*/
-            z-index: -1;
-        }
-
-        .overlay h2 {
-            background: #000 none repeat scroll 0 0;
-            color: tan;
-            font-weight: 600;
-            margin: 2rem 3rem 0;
-            /*mix-blend-mode: overlay;*/
-            padding: 5px 15px;
-            text-align: center;
-        }
-
-        #content {
-            width: 100%;
-            height: 100%;
-            display: table;
-            margin-top: 120px;
-            top: 50px;
-            left: 50px;
-            position: absolute;
-        }
-
-        /*#insidecontent {
-            
-            top: 40px;
-        }*/
-
-        #homeheading {
-            color: white;
-            text-transform: uppercase;
-            margin: 0px;
-            display: inline-block;
-            font-weight: 700;
-            position: relative;
-
-        }
-
-        #span1 {
-            color: yellow;
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-
-        #hometext {
-            color: white;
-            font-weight: 100;
-            margin: 8px 0px 30px 0;
-        }
-
-        #homeheading1,
-        #homeheading2 {
-            position: relative;
-            /*border: 2px solid black;*/
-            left: 10px;
-            font-size: 250%;
-            /*font-size: xx-large;*/
-        }
-
-        #para1 {
-            position: relative;
-            /*border: 2px solid black;*/
-            left: 10px;
-            padding: 10px;
-            display: inline-block;
-            font-size: 170%;
-        }
-
-        .btngeneral {
-            /*font-family: tamoha;
-            border-radius: 20px;
-            text-transform: uppercase;
-            padding: 12px 46px 12px 46px;
-            margin: 0 6px;
-            transition: all 0.4s;
-            background-color: #f4c613;
-            color: white;*/
-            background-color: #ffef00;
-            opacity: 0.8;
-            cursor: pointer;
-            box-shadow: 0 7px #f4c613;
-            /*padding: 15px 40px;*/
-            border-radius: 20px;
-            border: white;
-            color: black;
-            text-transform: uppercase;
-            margin: 0 6px;
-            font-family: 'Source Serif Pro', serif;
-            padding: 9px 20px 9px 20px;
-
-
-        }
-
-        .btn:hover {
-            color: white;
-            transition: all 0.4s;
-        }
-
-        .btn:active {
-            position: relative;
-            top: 7px;
-            box-shadow: none;
-        }
-
-        .container3 {
-            /*border: 2px solid gray;*/
-            display: inline-block;
-            top: 60px;
-            bottom: 30px;
-            left: 0px;
-            /*padding-bottom: 0px;
-            padding-left: 0px;
-            padding-right: 90px;*/
-            position: relative;
-            /*width: 1500px;*/
-            /*height: 200px;*/
-        }
-
-        /*.signup,
-        .signin {*/
-        /*background-color: black;*/
-        /* display: inline-block;
-            border: 2px solid gray;
-            left: 20%;
-            position: relative;
-            padding: 9px 18px 9px 18px;
-        }*/
-
-        #head1 {
-            display: inline-block;
-            left: 60%;
-            position: relative;
-            font-size: 170%;
-            font-family: "Lucida Grande";
-            color: #5f5d60;
-            font-weight: 500;
-
-        }
-
-        #head2 {
-            /*border: 2px solid gray;*/
-            display: block;
-            position: relative;
-            left: 70%;
-            top: 5%;
-            font-size: 120%;
-            font-family: "Lucida Grande";
-            color: #5f5d60;
-            font-weight: lighter;
-        }
-
-        .btn1 {
-            /*opacity: 100%;*/
-            color: black;
-
-            height: 50px;
-            width: 250px;
-            font-size: medium;
-            background-color: #ffef00;
-            opacity: 0.8;
-            cursor: pointer;
-            box-shadow: 0 7px #f4c613;
-            /*padding: 15px 40px;*/
-            border-radius: 2px;
-            border: white;
-            text-transform: uppercase;
-            margin: 0 6px;
-            font-family: tamoha;
-            /*padding: 4px 20px 9px 20px;*/
-
-        }
-
-        .btn1:hover {
-            color: white;
-            font-weight: 200;
-        }
-
-        .btn1:active {
-            position: relative;
-            top: 7px;
-            box-shadow: none;
-        }
-
-        .signup {
-            margin-left: 500px;
-            margin-right: 0px;
-            margin-top: 20px;
-            /*padding-top: 10px;*/
-            font-family: 'Source Serif Pro', serif;
-            display: inline-block;
-            opacity: 80%;
-        }
-
-        /*.signin {
-            margin-left: 30px;
-            margin-right: 0px;
-            margin-top: 20px;
-            padding-top: 10px;
-            font-family: 'Source Serif Pro', serif;
-            display: inline-block;
-            opacity: 80%;
-        }*/
-
-        .container4 {
-            border-top: 6px thick gray;
-            display: inline-block;
-            top: 4px;
-            left: 0px;
-            padding-bottom: 4px;
-            padding-left: 0px;
-            padding-right: 0px;
-            position: relative;
-            width: 100%;
-        }
-
-        .topcontent {
-            height: 10%;
-        }
-
-        #para2 {
-            font-size: medium;
-            margin-left: 500px;
-            display: block;
-            top: 0px;
-            /*text-align: center;*/
-        }
-
-        #parpara {
-            font-size: large;
-            margin-left: 550px;
-            display: block;
-
-
-        }
-
-        #copy {
-            color: #b3aeb5;
-            font-size: 12px;
-            display: block;
-            margin-left: 520px;
-
-        }
-
-        .messagecontent {
-            border-bottom: 1px solid #eee;
-            padding-bottom: 120px;
-            background-color: #f7f7f7;
-            margin-left: 0px;
-
-        }
-
-        /*.messagecontent {
-
-            border-bottom: 1px solid white;
-            color: black;
-            padding-bottom: 20px;
-            padding-top: 900px;
-            text-align: center;
-            top: 10px;
-
-        }
-
-        .heading h3 {
-            font-weight: normal;
-
-        }*/
-    </style>
-</head>
-
-<body>
-    <header>
-        <div class="container1">
-            <div class="headerleft">
-                <img src="{% static 'image/banklogo.jpg'%}" alt="loading" class="logo">
-
-
-            </div>
-            <div class="writelogo">
-                <p>TSF BANK</p>
-            </div>
-            <div class="headerright">
-                <a href="{%url 'home'%}" class="1">Home</a>
-                <a href="{%url 'about_us'%}" class="2">AboutUs</a>
-                <a href="{%url 'view_customer'%}" class="3">ViewCustomers</a>
-                <a href="{%url 'transhistory'%}" class="4">TransactionHistory</a>
-
-            </div>
-        </div>
-    </header>
-    <div class="topcontent">
+<html lang="en" dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Banking</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/style(2).css' %}">
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    </head>
+
+    <body>
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <img src="{% static 'image/banklogo.jpg' %}" class="logo lmgl" alt="loading">
+            <label class="logo">TSF Bank</label>
+
+            <ul>
+                <li><a class="active" href="{%url 'home'%}">Home</a></li>
+                <li><a href="{%url 'about_us'%}">About Us</a></li>
+                <li><a href="{%url 'view_customer'%}">View Customers</a></li>
+                <li><a href="{%url 'transhistory'%}">Transaction History</a></li>
+
+            </ul>
+        </nav>
 
         <section id="home">
-
-            <video src="{% static 'video/videos.mp4'%}" id="bgvideo" autoplay loop muted
-                poster="{% static 'image/homie.jpeg'%}">
-
+            <video src="{% static 'video/videos.mp4' %}" id="bgvideo" autoplay loop muted>
         </section>
 
+
         <div id="overlay">
+            <div id="content">
+                <div id="homeheading">
+                    <h1 id="homeheading1">WELCOME TO TSF BANK. </h1>
+                    <h2 id="homeheading2">ONE TAP <span id="span1">TRANSFER MONEY.</span> </h2>
+                </div>
+                <div id="hometext">
+                    <p id="para1">
+                        Powered by GRIP Association.<br>A different approach to Banking.
+                    </p>
 
-            <div class="container2">
-                <div id="content">
-                    <div class="textleft" id="insidecontent">
-                        <div id="homeheading">
-                            <h1 id="homeheading1">WELCOME TO TSF BANK. </h1>
-                            <h2 id="homeheading2">ONE TAP <span id="span1">TRANSFER MONEY.</span> </h2>
+                </div>
 
-                        </div>
-                        <div id="hometext">
-                            <p id="para1">
-                                Powered by GRIP Association.<br>A different approach to Banking.
-                            </p>
-
-                        </div>
-
-
-                        <!-- <button class="btn btngeneral">Transfer Money</button> -->
-                        <button type="submit" class="btn btngeneral"><a href="{%url 'trans'%}">Transfer
-                                Money</a></button>
-
-
-                    </div>
+                <div id="homebtn">
+                    <!-- <button class="btn btngeneral">Transfer Money</button> -->
+                    <a href="{%url 'trans'%}#" class="btn btngeneral" role="button" id="but">Transfer Money</a>
                 </div>
             </div>
         </div>
-    </div>
+        <div class="messagecontent">
+            <div class="container3">
 
-    </div>
-    <div class="messagecontent">
-        <div class="container3">
-            <div class="heading">
-                <h2 id="head1">Planning to transfer money online?</h2>
-                <h3 id="head2">Join us now.Add your details.</h3>
+                <h2 id="head1">Planning to transfer money online?</h2><br>
+                <h3 id="head2">Join us now.Add your details.</h3><br>
+                <a href="{%url 'new_cus'%}#" class="btn1 signup" role="button" id="but">Add a customer</a>
+
             </div>
-            <button type="submit" class="btn1 signup"><a href="{%url 'new_cus'%}">Add a customer</a></button>
-
-
 
         </div>
+        <footer>
+            <div class="container4">
+                <p id="para2">Designed and Developed By<br></p>
+                <p id="parpara">Purva Jagtap</p>
+                <p id="copy"> &copy; Copyright 2021:TSF Bank</p>
 
-    </div>
-    <footer>
-        <div class="container4">
-            <p id="para2">Designed and Developed By<br></p>
-            <p id="parpara">Purva Jagtap</p>
-            <p id="copy"> &copy; Copyright 2021:TSF Bank</p>
-
-        </div>
+            </div>
 
 
-    </footer>
-
-
-</body>
+        </footer>
+    </body>
 
 </html>

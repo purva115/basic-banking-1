@@ -2,127 +2,172 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transfer</title>
-    <style>
-        body {
-            background-image: url("{% static 'image/bg6.jpg'%}")
-        }
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Transfer</title>
+        <style>
+            body {
+                background-image: url("{% static 'image/bg6.jpg'%}")
+            }
 
-        .container {
-            border: 1px solid white;
+            .container {
+                border: 1px solid white;
 
-            margin-left: 70px;
-            margin-top: 20px;
-            display: inline-block;
-            height: 420px;
-            width: 30%;
-
-            background-image: url("{% static 'image/blank1.jpg'%}");
-            /*background-color: white;*/
-        }
-
-        label {
-            display: inline-block;
-            font-size: larger;
-            margin: 30px 20px;
-            /*border: 2px solid blue;*/
-
-        }
-
-        .box1,
-        .box2,
-        .text {
-            margin: 2px 2px;
-            /*border: 2px solid yellow;*/
-            width: 30%;
-            padding: 4px 4px;
-        }
-
-        .text {
-            width: 28%;
-        }
+                margin-left: 70px;
+                margin-top: 20px;
+                display: inline-block;
+                height: fit-content;
+                width: fit-content;
 
 
-        .btn1 {
-            display: block;
-            padding: 8px 18px;
-            margin: 4px 4px;
-            margin-left: 150px;
+                background-image: url("{% static 'image/blank1.jpg'%}");
+                /*background-color: white;*/
+            }
 
-        }
+            label {
+                display: inline-block;
+                font-size: larger;
+                margin: 30px 20px;
+                /*border: 2px solid blue;*/
 
+            }
 
-        .l1,
-        .l2,
-        .l3 {
-            margin-left: 100px;
+            .box1,
+            .box2,
+            .text {
+                margin: 2px 2px;
+                /*border: 2px solid yellow;*/
+                width: 30%;
+                padding: 4px 4px;
+            }
 
-            padding: 4px 4px;
-            width: 20%;
-
-
-        }
-
-
-        select,
-        input {
-            display: inline-block;
-            padding: 4px 4px;
-            margin: 4px 4px;
-        }
+            .text {
+                width: 28%;
+            }
 
 
-        p {
-            font-size: larger;
-            font-style: oblique;
-            text-align: center;
-            font-weight: 500;
-        }
-    </style>
+            .btn1 {
+                display: block;
+                padding: 8px 18px;
+                margin: 4px 4px;
+                margin-left: 150px;
 
-</head>
+            }
 
-<body>
-    <div class="container">
-        <p>Transaction Details</p>
-        <form method="POST">
-            {% csrf_token %}
-            <div>
-                <Label class="l1">Sender:</Label>
-                <select name="Sender" id="sender" class="box1">
 
-                    {% for i in customer_name %}
-                    <option value="{{i}}">{{i}}</option>
-                    {% endfor %}
+            .l1,
+            .l2,
+            .l3 {
+                margin-left: 100px;
 
-                </select>
-            </div>
-            <div>
-                <label class="l2">
-                    Receiver:
+                padding: 4px 4px;
+                width: 20%;
+
+
+            }
+
+
+            select,
+            input {
+                display: inline-block;
+                padding: 4px 4px;
+                margin: 4px 4px;
+            }
+
+
+            p {
+                font-size: larger;
+                font-style: oblique;
+                text-align: center;
+                font-weight: 500;
+            }
+
+            @media screen and (max-width:600px) {
+                .container {
+                    border: 1px solid white;
+
+                    margin-left: 5%;
+                    margin-top: 3%;
+                    display: inline-block;
+                    height: fit-content;
+                    width: fit-content;
+
+                    background-image: url("{% static 'image/blank1.jpg'%}");
+                    /*background-color: white;*/
+                }
+
+                .l1,
+                .l2,
+                .l3 {
+                    margin-left: 30px;
+                    font-size: medium;
+                    padding: 2px 2px;
+                    width: 20%;
+
+
+                }
+
+                .box1,
+                .box2,
+                .text {
+                    margin: 2px 2px;
+                    /*border: 2px solid yellow;*/
+                    width: 35%;
+                    padding: 3px 3px;
+                }
+
+                .btn1 {
+                    display: block;
+                    padding: 8px 18px;
+                    margin: 4px 4px;
+                    margin-left: 100px;
+
+                }
+
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <div class="container">
+            <p>Transaction Details</p>
+            <form method="POST">
+                {% csrf_token %}
+                <div>
+                    <Label class="l1">Sender:</Label>
+                    <select name="Sender" id="sender" class="box1">
+
+                        {% for i in customer_name %}
+                        <option value="{{i}}">{{i}}</option>
+                        {% endfor %}
+
+                    </select>
+                </div>
+                <div>
+                    <label class="l2">
+                        Receiver:
+                    </label>
+                    <select name="Receiver" id="receiver" class="box2">
+
+                        {% for i in customer_name %}
+                        <option value="{{i}}">{{i}}</option>
+                        {% endfor %}
+
+
+                    </select>
+                </div>
+                <label class="l3">
+                    Amount:
                 </label>
-                <select name="Receiver" id="receiver" class="box2">
-
-                    {% for i in customer_name %}
-                    <option value="{{i}}">{{i}}</option>
-                    {% endfor %}
-
-
-                </select>
-            </div>
-            <label class="l3">
-                Amount:
-            </label>
-            <input type="number" class="text" name="amount">
-            <div class="btn">
-                <button type="submit" class="btn1">Transfer</button>
-            </div>
-        </form>
-    </div>
-</body>
+                <input type="number" class="text" name="amount">
+                <div class="btn">
+                    <button type="submit" class="btn1">Transfer</button>
+                </div>
+            </form>
+        </div>
+    </body>
 
 </html>
