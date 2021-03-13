@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'w3_6i=$^a(33k9ret5$d^f4$w62f5*6e_mn*qc943ktr22hpl*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['http://purva511.pythonanywhere.com/']
 
 
 # Application definition
